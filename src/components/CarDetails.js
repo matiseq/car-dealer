@@ -12,8 +12,8 @@ const CarDetails = ({ car }) => {
     <div className="card p-3 mb-3">
       <h2>{car.name}</h2>
       <p>Cena: {car.price} zł</p>
-      <p>Średnia moc: {car.avg_horsepower} HP</p>
-      <p>Średnia cena: {car.avg_price} zł</p>
+      <p>Moc: {car.power} KM</p>
+      <p>Rok produkcji: {car.year}</p>
     </div>
   );
 };

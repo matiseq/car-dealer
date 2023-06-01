@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CarForm from './components/CarForm';
 import CarList from './components/CarList';
 import Header from './components/Header';
@@ -19,13 +19,17 @@ const App = () => {
       result.data.slice(0, 10).map((manufacturer) => ({
         id: manufacturer.id,
         name: manufacturer.name,
-        price: Math.floor(Math.random() * 100000),
-        avg_horsepower: Math.round(Math.random() * 300),
-        avg_price: Math.round(Math.random() * 100000),
+        price: Math.round(Math.floor(Math.random() * 100000)),
+        power: Math.round(manufacturer.avg_horsepower),
+        year: Math.floor(Math.random() * (2023 - 1990 + 1)) + 1990,
       }))
     );
     setDataFetched(true);
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const addCar = (car) => {
     setCars([...cars, car]);
